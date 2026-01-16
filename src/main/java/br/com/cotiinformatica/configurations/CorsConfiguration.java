@@ -9,10 +9,10 @@ public class CorsConfiguration implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**") // libera para todos os endpoints da API
-                .allowedOrigins("http://localhost:4200") // URL do Angular
-                .allowedMethods("GET", "POST", "PUT", "DELETE") // métodos permitidos
-                .allowedHeaders("*") // libera todos os headers
-                .allowCredentials(true); // se precisar enviar cookies/autenticação
+        registry.addMapping("/**") // libera todos os endpoints
+                .allowedOriginPatterns("*") // libera qualquer IP/origem
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedHeaders("*")
+                .allowCredentials(true);
     }
 }
